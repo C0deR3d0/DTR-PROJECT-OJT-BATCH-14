@@ -12,7 +12,7 @@ body{
     display: flex;
     justify-content: center ;
     min-height: auto;
-    padding-top: 10px;
+    padding-top: 200px;
 }
 header{
     position: fixed;
@@ -44,7 +44,6 @@ button {
     font-family: 'Poppins', sans-serif;
     background-color: white;
     color: black;
-    border: #5baeb7;
     border-radius: 10px;
     transition: background-color 0.3s ease;
 }
@@ -52,12 +51,7 @@ button {
 button:hover {
     background-color: #5baeb7;
     color: white;
-}
-.navigation_home {
-  overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
+    border: none;
 }
 .navigation_home {
   overflow: hidden;
