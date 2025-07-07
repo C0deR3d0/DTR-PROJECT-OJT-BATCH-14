@@ -1,16 +1,11 @@
 <?php
+include 'connect.php'; 
 $conn = new mysqli("localhost", "root", "", "dtr_db");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Example of processing admin actions (optional: like delete log)
-if (isset($_POST['delete_log'])) {
-    $logID = $_POST['logID'];
-    $stmt = $conn->prepare("DELETE FROM records WHERE logID = ?");
-    $stmt->bind_param("i", $logID);
-    $stmt->execute();
-}
+
 
 // Fetch all logs with employee info
 $query = "SELECT 

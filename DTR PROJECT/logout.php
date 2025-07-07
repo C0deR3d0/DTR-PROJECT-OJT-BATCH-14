@@ -32,6 +32,6 @@ session_start();
 $_SESSION['logout_message'] = "✅ You have been successfully logged out.";
 
 // Redirect to logs page
-header("Location: adminhomepage.html");
+header("Location: home.html");
 exit();
 ?>
