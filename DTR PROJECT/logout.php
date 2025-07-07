@@ -31,7 +31,7 @@ session_write_close();
 session_start();
 $_SESSION['logout_message'] = "✅ You have been successfully logged out.";
 
-// Redirect to login page
-header("Location: login.php");
+// Redirect to logs page
+header("Location: adminhomepage.html");
 exit();
 ?>
