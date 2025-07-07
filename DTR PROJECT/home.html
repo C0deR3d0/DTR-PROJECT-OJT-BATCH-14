@@ -8,7 +8,7 @@
         <header class="navigation_home">
             <div class="logo">
                 <img src="image/miller logo.svg" alt="University Logo">
-                <h1>Daily Time Record</h1>
+                <h1><span>Miller</span> Solution </span> Development </span> Inc.</h1>
             </div>
             <nav class="navigation">
                 <button><i class="fas fa-sign-in-alt"></i> View DTR</button>
@@ -32,27 +32,32 @@
                 to bottom, transparent 0 100px,
                 #25283b22 100px 101px
             );
-        }
-
-        body::before{
-            position: absolute;
-            width: min(1400px, 90vw);
-            top: 10%;
-            left: 50%;
-            height: 100%;
-            transform: translate(-50%);
-            content: '';
-            background-size: 100%;
-            background-repeat: no-repeat;
-            background-position: top center;
-            pointer-events: none;
+            display: flex;
+            flex-direction: column;
         }
     </style>
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body style="padding-top: 140px;">
+<body style="padding-top: 150px; align-items: center;">
+    <div class="form-outline" data-mdb-input-init style="text-align: center;">
+        <input type="text" id="typeText" class="form-control" style="width: 300px; text-align: center;" placeholder="Identification Number"/>
+        <button><i class="fas fa-user-plus"></i> Submit</button>
+    </div>
+    <br>
     <div class="table-container-grid">
+        <table class="table table-striped">
+            <thead style="text-align: center;">
+                <tr>
+                <th scope="col";>Name</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                <tr>
+                    <td>Mark</td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-striped">
             <thead style="text-align: center;">
                 <tr>
@@ -61,7 +66,7 @@
             </thead>
             <tbody style="text-align: center;">
                 <tr>
-                    <td>Mark</td>
+                    <td>8:00AM</td>
                 </tr>
             </tbody>
         </table>
@@ -73,10 +78,11 @@
             </thead>
             <tbody style="text-align: center;">
                 <tr>
-                    <td>Mark</td>
+                    <td>5:00PM</td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <script src="home.js"></script>
     </body>
 </html>

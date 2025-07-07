@@ -63,7 +63,7 @@ button:hover {
 
 .table-container-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Create two columns of equal width */
-    gap: 20px;                      /* Optional: adds space between the columns */
+    grid-template-columns: 1fr 300px 300px;
+    gap: 20px;                    
     width: 100%;
 }
