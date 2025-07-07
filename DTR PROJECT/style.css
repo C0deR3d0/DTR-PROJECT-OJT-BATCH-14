@@ -12,7 +12,7 @@ body{
     display: flex;
     justify-content: center ;
     min-height: auto;
-    padding-top: 200px;
+    padding-top: 150px;
 }
 header{
     position: fixed;
@@ -66,4 +66,33 @@ button:hover {
     grid-template-columns: 1fr 300px 300px;
     gap: 20px;                    
     width: 100%;
+}
+
+.bottom_nav_bar {
+    position: sticky;
+    top: 60px;
+    width: 100%;
+    background-color: white;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+    border-bottom: 1px solid #eee;
+}
+
+.bottom-nav-item {
+    color: #555;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 5px 20px;
+    transition: all 0.3s ease;
+}
+
+.bottom-nav-item:hover {
+    color: #007bff;
+    background-color: #e9ecef;
+    border-radius: 4px;
 }
