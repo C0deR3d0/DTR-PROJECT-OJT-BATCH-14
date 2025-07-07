@@ -52,9 +52,17 @@ button {
 button:hover {
     background-color: #55d68f;
 }
+
 .navigation_home {
   overflow: hidden;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
+}
+
+.table-container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Create two columns of equal width */
+    gap: 20px;                      /* Optional: adds space between the columns */
+    width: 100%;
 }
