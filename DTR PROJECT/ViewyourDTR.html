@@ -44,5 +44,23 @@ table, th, td {
         </div>
 
     </table>
+
+      <script>
+    function loadDTR() {
+        let id = document.getElementById("employeeID").value;
+        fetch("view_dtr.php?employeeID=" + id)
+            .then(res => res.json())
+            .then(data => {
+                let tbody = document.querySelector("#dtrTable tbody");
+                tbody.innerHTML = "";
+                data.forEach(row => {
+                    let tr = document.createElement("tr");
+                    tr.innerHTML = `<td>${row.logID}</td><td>${row.employeeID}</td><td>${row.timeStamp}</td>`;
+                    tbody.appendChild(tr);
+                });
+            });
+    }
+    </script>
+    
 </body>
 
