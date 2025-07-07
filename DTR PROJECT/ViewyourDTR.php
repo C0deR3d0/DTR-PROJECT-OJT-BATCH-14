@@ -27,7 +27,7 @@ if (isset($_GET['employeeID'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Registration</title>
+    <title>View Database</title>
     <link rel="stylesheet" href="style.css">
     <style>
 table, th, td {
@@ -47,6 +47,10 @@ table, th, td {
         </nav>
    </header>
 <div class="month">
+<h3> Employee ID: <input name="employeeID" field="box">
+            <button><i class="fas fa-sign-in-alt"></i> SUBMIT</button>
+    
+    </h3>
 <h3>Name of the Intern:</h3>
 <h3>For the month of:</h3>
 <h3>Official Hours for (Regular Days) </h3>
@@ -65,9 +69,25 @@ table, th, td {
             <th class="PM_arrival">Arrival</th>
             <th class="PM_departure">Departure</th>
         </tr>
-        <td>
+
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
         
-        </td>
+        <tr>
+            <td class="total">Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        
         </div>
 
     </table>
