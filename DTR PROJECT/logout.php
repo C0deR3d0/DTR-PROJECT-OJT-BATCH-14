@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-// Store the logout message before destroying session
-$_SESSION['logout_message'] = "✅ You have been successfully logged out.";
-
 // Regenerate session ID for security
 session_regenerate_id(true);
 
@@ -24,14 +21,14 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Write session data and close it
-session_write_close();
+// Destroy the session
+session_destroy();
 
-// Start a new clean session just for the message
+// Start a new clean session for logout message
 session_start();
 $_SESSION['logout_message'] = "✅ You have been successfully logged out.";
 
-// Redirect to logs page
+// Redirect to homepage (or login)
 header("Location: home.html");
 exit();
 ?>
