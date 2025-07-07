@@ -13,12 +13,11 @@ try {
     $hasPasswordColumn = $columnCheck->rowCount() > 0;
 
     if ($hasPasswordColumn) {
-        // Migration from plaintext password column to passwordHash
+        // Fetch admins with non-hashed passwords
         $stmt = $conn->query("SELECT adminID, password FROM admin WHERE password NOT LIKE '$2y$%'");
     } else {
-        // Handle case where only passwordHash exists
-        echo "No plaintext password column found. Checking for empty hashes...\n";
-        $stmt = $conn->query("SELECT adminID, passwordHash FROM admin WHERE passwordHash IS NULL OR passwordHash = ''");
+        echo "No plaintext password column found. Checking for empty passwordHash values...\n";
+        $stmt = $conn->query("SELECT adminID FROM admin WHERE passwordHash IS NULL OR passwordHash = ''");
     }
 
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -33,17 +32,32 @@ try {
     $conn->beginTransaction();
 
     foreach ($users as $user) {
-        $plaintext = $hasPasswordColumn ? $user['password'] : 'defaultPassword'; // Set a secure default
+        $adminID = $user['adminID'];
+        if ($hasPasswordColumn) {
+            $plaintext = $user['password'];
+        } else {
+            // Use a secure randomly generated default password (or skip)
+            echo "Admin ID $adminID has no password. Skipping...\n";
+            continue;
+        }
+
         $hashed = password_hash($plaintext, PASSWORD_BCRYPT);
 
+        // Update passwordHash
         $update = $conn->prepare("UPDATE admin SET passwordHash = ? WHERE adminID = ?");
-        $update->execute([$hashed, $user['adminID']]);
+        $update->execute([$hashed, $adminID]);
 
-        echo "Updated admin ID {$user['adminID']}\n";
+        // Optional: clear the old plaintext password
+        if ($hasPasswordColumn) {
+            $clear = $conn->prepare("UPDATE admin SET password = NULL WHERE adminID = ?");
+            $clear->execute([$adminID]);
+        }
+
+        echo "Migrated admin ID $adminID\n";
     }
 
     $conn->commit();
-    echo "Migration completed successfully!\n";
+    echo "Password migration completed successfully.\n";
 
 } catch (Exception $e) {
     $conn->rollBack();
