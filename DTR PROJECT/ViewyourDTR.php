@@ -28,7 +28,7 @@ if (isset($_GET['employeeID'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Registration</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="style.css">
     <style>
 table, th, td {
   border: 1px solid black;
@@ -37,10 +37,15 @@ table, th, td {
 </head>
 
 <body>
-    <header>
-           <img src="DTR PROJECT/image/miller logo.svg">
-    </header>
-
+   <header>
+        <div class="logo">
+            <img src="image/miller logo.svg" alt="University Logo">
+            <h1><span>Miller</span> Solution </span> Development </span> Inc.</h1>
+        </div>
+        <nav class="navigation">
+            <button><i class="fas fa-sign-in-alt"></i> BACK</button>
+        </nav>
+   </header>
 <div class="month">
 <h3>Name of the Intern:</h3>
 <h3>For the month of:</h3>
