@@ -18,4 +18,15 @@ $query = "SELECT
           ORDER BY r.timeStamp DESC";
 
 $result = $conn->query($query);
+
+// Add Employee Info
+
+// Edit Employee Info
+
+// Delete Employee Info
+
+// Display specific records
+
+
 ?>
+
